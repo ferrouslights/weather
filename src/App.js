@@ -26,11 +26,18 @@ useEffect(() => {
   }
 }, [])
 
+
+
   return (
     <div>
       <h1>Weather App</h1>
       <input type="text" onChange={(e) => setCity(e.target.value)} placeholder="City" />
       <button type="button" onClick={() => getData()}>Search</button>
+
+      {loading ? (
+          <p>bussin</p> 
+      ) : false}
+
       {weatherData !== null ? (
         <WeatherReport weatherData={weatherData} />
       ) : null}
