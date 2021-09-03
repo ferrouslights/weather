@@ -15,7 +15,6 @@ const App = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("Pensacola");
   const [loading, setLoading] = useState(false);
-  const [temp, setTemp] = useState(true);
 
   const getData = async () => {
     try {
