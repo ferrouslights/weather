@@ -20,8 +20,10 @@ const App = () => {
     try {
       setLoading(true);
       const data = await getWeatherData(city);
-      setWeatherData(data);
-      setLoading(false);
+      setTimeout(() => {
+        setWeatherData(data);
+        setLoading(false);
+      }, 1000);
     } catch (error) {
       console.log(error.message);
       setLoading(false);
@@ -59,11 +61,11 @@ const App = () => {
                 type="button"
                 onClick={() => getData()}
               >
-                Search
+                {loading ? <CircularProgress /> : <div>Search</div>}
               </Button>
             </Grid>
+            {/* {loading ? <CircularProgress /> : false} */}
           </Paper>
-          {loading ? <CircularProgress /> : false}
         </Box>
       </Grid>
 
