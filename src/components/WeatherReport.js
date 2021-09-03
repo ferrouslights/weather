@@ -1,10 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import { Hidden } from "@material-ui/core";
-import { Box } from "@material-ui/core";
 
 const emoji = require("emoji-dictionary");
 
