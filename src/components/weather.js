@@ -9,6 +9,6 @@ export const getWeatherData = async (cityname) => {
         return data
     }
     catch(error) {
-        console.log("Error");
+        throw error;
     }
 }
