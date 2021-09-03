@@ -28,6 +28,7 @@ const App = () => {
     } catch (error) {
       console.log("Something went wrong");
       setLoading(false);
+      setWeatherData(null)
     }
   };
 
