@@ -1,3 +1,3 @@
-# This is a playground for learning react
+# This is a simple weather app using weatherapi.com
 
-I will only be using this repo to keep track of different projects as I learn. Feel free to view them and make recommendations if you see bad habits.
+This app utilizes the api, react, and material ui to create a simple current weather experience.
