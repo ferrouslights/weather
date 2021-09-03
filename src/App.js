@@ -23,7 +23,7 @@ const App = () => {
       setTimeout(() => {
         setWeatherData(data);
         setLoading(false);
-      }, 1000);
+      }, 800);
     } catch (error) {
       console.log(error.message);
       setLoading(false);

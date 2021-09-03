@@ -105,8 +105,7 @@ const WeatherReport = ({ weatherData }, { loading }) => {
                   {weatherData.location.region.substring(0, 2).toUpperCase()}
                 </Typography>
                 <Typography variant="subtitle2" color="primary">
-                  Wind: {weatherData.current.wind_mph}{" "}
-                  {weatherData.current.wind_dir}
+                  Feels Like: {weatherData.current.feelslike_f}
                 </Typography>
                 <Typography variant="body2" style={{ cursor: "pointer" }}>
                   UV: {weatherData.current.uv}
