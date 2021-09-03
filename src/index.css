@@ -9,6 +9,8 @@ code {
     monospace;
 }
 
-.textField: {
+input {
   background: #fff;
+  height: 30px;
+  width: 800px
 }
