@@ -1,3 +1,36 @@
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import ButtonBase from "@material-ui/core/ButtonBase";
+import { LinearProgress } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    margin: "auto",
+    maxWidth: 800,
+    borderRadius: 15,
+  },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: "auto",
+    display: "block",
+    maxWidth: "100%",
+    maxHeight: "100%",
+  },
+  temp: {
+    // fontFamily: 'Rampart One',
+    fontSize: 40,
+  },
+}));
+
 //JSON Organization
 // {
 //     "location": {
@@ -41,15 +74,63 @@
 //     }
 // }
 
+const WeatherReport = ({ weatherData }) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <Paper className={classes.paper}>
+        <Grid container spacing={2}>
+          <Grid item>
+            <ButtonBase className={classes.temp}>
+              <h2 className="temp">{weatherData.current.temp_f}º</h2>
+            </ButtonBase>
+          </Grid>
+          <Grid item xs={12} sm container>
+            <Grid item xs container direction="column" spacing={2}>
+              <Grid item xs>
+                <Typography gutterBottom variant="h2">
+                  {weatherData.location.name},{" "}
+                  {weatherData.location.region.substring(0, 2).toUpperCase()}
+                </Typography>
+                <Typography variant="subtitle2" color="primary">
+                  Wind: {weatherData.current.wind_mph}{" "}
+                  {weatherData.current.wind_dir}
+                </Typography>
+                <Typography variant="body2" style={{ cursor: "pointer" }}>
+                  UV: {weatherData.current.uv}
+                </Typography>
+              </Grid>
+              <Grid item>
+              <Typography variant="subtitle1" gutterBottom>
+                  Last Updated: {weatherData.current.last_updated}
+                </Typography>
+                
+              </Grid>
+            </Grid>
+            <Grid item>
+              <img
+                alt={weatherData.current.condition.text}
+                src={"https:" + weatherData.current.condition.icon}
+              ></img>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Paper>
+    </div>
 
-const WeatherReport = ({weatherData}) => {
-    return (
-        <div>
-            <h2>{weatherData.location.name}, {weatherData.location.region.substring(0,2).toUpperCase()}</h2>
-            <img alt={weatherData.current.condition.text} src={'https:' + weatherData.current.condition.icon}></img>
-            <h2>{weatherData.current.temp_f}º</h2>
-        </div>
-    )
-}
+    // <div className="">
+    //   <h2>
+    //     {weatherData.location.name},{" "}
+    //     {weatherData.location.region.substring(0, 2).toUpperCase()}
+    //   </h2>
+    //   <h3 className="temp">{weatherData.current.temp_f}º</h3>
 
-export default WeatherReport
+    //   <img
+    //     alt={weatherData.current.condition.text}
+    //     src={"https:" + weatherData.current.condition.icon}
+    //   ></img>
+    // </div>
+  );
+};
+
+export default WeatherReport;
