@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: "100%",
   },
   temp: {
-    // fontFamily: 'Rampart One',
     fontSize: 40,
   },
 }));
