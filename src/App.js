@@ -15,6 +15,15 @@ const App = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("Pensacola");
   const [loading, setLoading] = useState(false);
+  const [temp, setTemp] = useState(true);
+
+  function checkTemp({temp}) {
+    if (temp === true) {
+      return "hot";
+    } else {
+      return "cold";
+    }
+  }
 
   const getData = async () => {
     try {
@@ -55,19 +64,17 @@ const App = () => {
                 type="text"
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="City, ZIP, Lat/Long"
-                color="#fff"
-
+                color="secondary"
               />
-              <Button
-                aria-label="add"
-                type="button"
-                onClick={() => getData()}
-                
-              >
-                {loading ? <CircularProgress /> : <div className="">Search</div>}
+              <Button aria-label="add" type="button" onClick={() => getData()}>
+                {loading ? (
+                  <CircularProgress />
+                ) : (
+                  <div className="">Search</div>
+                )}
               </Button>
             </Grid>
-            </Paper>
+          </Paper>
         </Box>
       </Grid>
 

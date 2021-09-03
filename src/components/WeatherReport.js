@@ -128,7 +128,7 @@ const WeatherReport = ({ weatherData }, { loading }) => {
         alignItems="center"
         spacing={2}
       >
-        <Grid container spacing={3} justifyContent="space-evenly">
+        <Grid container spacing={5} justifyContent="flex-start">
           <Grid
             item
             container
@@ -137,6 +137,7 @@ const WeatherReport = ({ weatherData }, { loading }) => {
             lg={2}
             direction="column"
             justifyContent="center"
+            alignContent="center"
           >
             <Grid item>
               <Typography variant="h1">
