@@ -87,6 +87,7 @@ const WeatherReport = ({ weatherData }, { loading }) => {
               </Typography>
               <Hidden smUp>
                 <img
+                  width={128}
                   alt={weatherData.current.condition.text}
                   src={"https:" + weatherData.current.condition.icon}
                 ></img>
@@ -117,6 +118,7 @@ const WeatherReport = ({ weatherData }, { loading }) => {
             <Hidden mdDown>
               <Grid item>
                 <img
+                  width={128}
                   alt={weatherData.current.condition.text}
                   src={"https:" + weatherData.current.condition.icon}
                 ></img>

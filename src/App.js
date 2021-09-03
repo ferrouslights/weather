@@ -12,7 +12,6 @@ import {
 } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 
-
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("Pensacola");
@@ -45,34 +44,33 @@ const App = () => {
       >
         <Box m={3}>
           {/* <h1>Weather Report</h1> */}
-          <AppBar position='static' color='#fff'>
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              label="Location"
-              type="text"
-              onChange={(e) => setCity(e.target.value)}
-              placeholder="City, ZIP, Lat/Long"
-            />
-            <Button
-              color="white"
-              aria-label="add"
-              type="button"
-              onClick={() => getData()}
-            >
-              Search
-            </Button>
-            
-          </AppBar>
+          <Paper position="static" color="#fff">
+            <Grid container alignItems="stretch" m={3}>
+              <TextField
+                id="filled-secondary"
+                variant="filled"
+                label="Location"
+                type="text"
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="City, ZIP, Lat/Long"
+              />
+              <Button
+                color="white"
+                aria-label="add"
+                type="button"
+                onClick={() => getData()}
+              >
+                Search
+              </Button>
+            </Grid>
+          </Paper>
           {loading ? <CircularProgress /> : false}
         </Box>
       </Grid>
-      
 
       {weatherData !== null ? (
         <WeatherReport weatherData={weatherData} loading={loading} />
       ) : null}
-      
     </Container>
   );
 };
