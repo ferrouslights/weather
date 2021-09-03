@@ -64,8 +64,6 @@ function ChooseEmoji(props) {
 
 const WeatherReport = ({ weatherData }, { loading }) => {
   const classes = useStyles();
-  console.log(emoji.getName("🤠"));
-
   return (
     <div className={classes.root}>
       <Grid
