@@ -7,7 +7,8 @@ import {
   Container,
   TextField,
   Button,
-  LinearProgress,
+  CircularProgress,
+  AppBar,
 } from "@material-ui/core";
 
 const App = () => {
@@ -40,31 +41,36 @@ const App = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Box>
+        <Box m={3}>
           {/* <h1>Weather Report</h1> */}
-          <TextField
-            id="outlined-basic"
-            variant="outlined"
-            label="Location"
-            type="text"
-            onChange={(e) => setCity(e.target.value)}
-            placeholder="City, ZIP, Lat/Long"
-          />
-          <Button
-            color="primary"
-            aria-label="add"
-            type="button"
-            onClick={() => getData()}
-          >
-            Search
-          </Button>
+          <AppBar position='static' color='#fff'>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              label="Location"
+              type="text"
+              onChange={(e) => setCity(e.target.value)}
+              placeholder="City, ZIP, Lat/Long"
+            />
+            <Button
+              color="white"
+              aria-label="add"
+              type="button"
+              onClick={() => getData()}
+            >
+              Search
+            </Button>
+            
+          </AppBar>
+          {loading ? <CircularProgress /> : false}
         </Box>
       </Grid>
-      {loading ? <LinearProgress /> : false}
+      
 
       {weatherData !== null ? (
         <WeatherReport weatherData={weatherData} loading={loading} />
       ) : null}
+      
     </Container>
   );
 };

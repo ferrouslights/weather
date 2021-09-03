@@ -73,15 +73,17 @@ const useStyles = makeStyles((theme) => ({
 //     }
 // }
 
-const WeatherReport = ({ weatherData }) => {
+const WeatherReport = ({ weatherData }, { loading }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Grid container spacing={2}>
-          <Grid item>
+        <Grid container spacing={2} justifyContent="space-around">
+          <Grid item alignItems="center">
             <ButtonBase className={classes.temp}>
-              <h2 className="temp">{weatherData.current.temp_f}º</h2>
+              <Typography variant="h1">
+                {weatherData.current.temp_f}º
+              </Typography>
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
@@ -100,10 +102,9 @@ const WeatherReport = ({ weatherData }) => {
                 </Typography>
               </Grid>
               <Grid item>
-              <Typography variant="subtitle1" gutterBottom>
+                <Typography variant="subtitle1" gutterBottom>
                   Last Updated: {weatherData.current.last_updated}
                 </Typography>
-                
               </Grid>
             </Grid>
             <Grid item>
