@@ -17,14 +17,6 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [temp, setTemp] = useState(true);
 
-  function checkTemp({temp}) {
-    if (temp === true) {
-      return "hot";
-    } else {
-      return "cold";
-    }
-  }
-
   const getData = async () => {
     try {
       setLoading(true);
