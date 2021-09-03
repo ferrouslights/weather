@@ -7,8 +7,9 @@ import {
   Container,
   TextField,
   Button,
-  LinearProgress,
+  CircularProgress,
 } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -19,8 +20,10 @@ const App = () => {
     try {
       setLoading(true);
       const data = await getWeatherData(city);
-      setWeatherData(data);
-      setLoading(false);
+      setTimeout(() => {
+        setWeatherData(data);
+        setLoading(false);
+      }, 800);
     } catch (error) {
       console.log(error.message);
       setLoading(false);
@@ -40,27 +43,31 @@ const App = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Box>
+        <Box m={3}>
           {/* <h1>Weather Report</h1> */}
-          <TextField
-            id="outlined-basic"
-            variant="outlined"
-            label="Location"
-            type="text"
-            onChange={(e) => setCity(e.target.value)}
-            placeholder="City, ZIP, Lat/Long"
-          />
-          <Button
-            color="primary"
-            aria-label="add"
-            type="button"
-            onClick={() => getData()}
-          >
-            Search
-          </Button>
+          <Paper position="static" color="#fff">
+            <Grid container alignItems="stretch" m={3}>
+              <TextField
+                id="filled-secondary"
+                variant="filled"
+                label="Location"
+                type="text"
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="City, ZIP, Lat/Long"
+              />
+              <Button
+                color="white"
+                aria-label="add"
+                type="button"
+                onClick={() => getData()}
+              >
+                {loading ? <CircularProgress /> : <div>Search</div>}
+              </Button>
+            </Grid>
+            {/* {loading ? <CircularProgress /> : false} */}
+          </Paper>
         </Box>
       </Grid>
-      {loading ? <LinearProgress /> : false}
 
       {weatherData !== null ? (
         <WeatherReport weatherData={weatherData} loading={loading} />
