@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import { Hidden } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -80,21 +81,23 @@ const WeatherReport = ({ weatherData }, { loading }) => {
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container spacing={2} justifyContent="space-around">
-          <Grid item alignItems="space-between" xs={12} md={4} lg={3}>
-            <ButtonBase className={classes.temp}>
-              <Typography variant="h1">
-                {weatherData.current.temp_f}º
-              </Typography>
-              <Hidden smUp>
-                <img
-                  width={128}
-                  alt={weatherData.current.condition.text}
-                  src={"https:" + weatherData.current.condition.icon}
-                ></img>
-              </Hidden>
-            </ButtonBase>
+          <Grid item alignItems="space-between" xs={12} md={4} lg={4}>
+            <Box>
+              <ButtonBase className={classes.temp}>
+                <Typography variant="h1">
+                  {weatherData.current.temp_f}º
+                </Typography>
+                <Hidden smUp>
+                  <img
+                    width={128}
+                    alt={weatherData.current.condition.text}
+                    src={"https:" + weatherData.current.condition.icon}
+                  ></img>
+                </Hidden>
+              </ButtonBase>
+            </Box>
           </Grid>
-          <Grid item xs={12} sm container>
+          <Grid item xs={12} lg={8} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="h2">
