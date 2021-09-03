@@ -6,9 +6,12 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import { Hidden } from "@material-ui/core";
 import { Box } from "@material-ui/core";
 
+const emoji = require("emoji-dictionary");
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    color: "white",
   },
   paper: {
     padding: theme.spacing(2),
@@ -75,10 +78,112 @@ const useStyles = makeStyles((theme) => ({
 //     }
 // }
 
+// emojis of importance:
+// cloud_with_rain
+// sunny
+// snowflake
+
+function IsSunny(props) {
+  const condition = props.condition;
+  if (condition !== 1000) {
+    return (
+      <span>
+        {" "}
+        Maybe bring an <strong>umbrella</strong> tho.
+      </span>
+    );
+  } else {
+    return (
+      <span>
+        {" "}
+        No <strong>umbrella</strong> needed.
+      </span>
+    );
+  }
+}
+
+function ChooseEmoji(props) {
+  const condition = props.condition;
+  if (condition !== 1000) {
+    return <Typography variant="h1">{emoji.getUnicode("umbrella")}</Typography>;
+  } else {
+    return (
+      <Typography variant="h1">
+        {emoji.getUnicode("cowboy_hat_face")}
+      </Typography>
+    );
+  }
+}
+
 const WeatherReport = ({ weatherData }, { loading }) => {
   const classes = useStyles();
+  console.log(emoji.getName("🤠"));
+
   return (
     <div className={classes.root}>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={2}
+      >
+        <Grid container spacing={3} justifyContent="space-evenly">
+          <Grid
+            item
+            container
+            xs={6}
+            md={6}
+            lg={2}
+            direction="column"
+            justifyContent="center"
+          >
+            <Grid item>
+              <Typography variant="h1">
+                {weatherData.current.temp_f}º
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="body1">
+                <u>
+                  {weatherData.location.name},{" "}
+                  {weatherData.location.region.substring(0, 2).toUpperCase()}
+                </u>
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid
+            item
+            container
+            xs={6}
+            md={6}
+            lg={2}
+            justifyContent="center"
+          >
+            <ChooseEmoji condition={weatherData.current.condition.code} />
+          </Grid>
+        </Grid>
+
+        <Grid item xs={12} md={12} lg={12}>
+          {/* {weatherData.current.temp_f > 69 && (
+            <Typography variant="h2" color="#ffffff">
+              You def don't need a jacket.
+            </Typography>
+          )} */}
+          {weatherData.current.temp_f > 75 ? (
+            <Typography variant="h2">
+              Sun's bussin'. You def don't need a <strong>jacket</strong>.
+              <IsSunny condition={weatherData.current.condition.code} />
+            </Typography>
+          ) : (
+            <Typography variant="h2">
+              You def need a <strong>jacket</strong>.
+              <IsSunny condition={weatherData.current.condition.code} />
+            </Typography>
+          )}
+        </Grid>
+      </Grid>
+      {/*         
       <Paper className={classes.paper}>
         <Grid container spacing={2} justifyContent="space-around">
           <Grid item alignItems="space-between" xs={12} md={4} lg={4}>
@@ -128,7 +233,7 @@ const WeatherReport = ({ weatherData }, { loading }) => {
             </Hidden>
           </Grid>
         </Grid>
-      </Paper>
+      </Paper> */}
     </div>
 
     // <div className="">

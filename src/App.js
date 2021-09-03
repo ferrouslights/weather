@@ -22,6 +22,7 @@ const App = () => {
       const data = await getWeatherData(city);
       setTimeout(() => {
         setWeatherData(data);
+        setCity("");
         setLoading(false);
       }, 800);
     } catch (error) {
@@ -45,27 +46,28 @@ const App = () => {
       >
         <Box m={3}>
           {/* <h1>Weather Report</h1> */}
-          <Paper position="static" color="#fff">
+          <Paper color="#fff">
             <Grid container alignItems="stretch" m={3}>
               <TextField
-                id="filled-secondary"
-                variant="filled"
-                label="Location"
+                id="outlined-basic"
+                variant="outlined"
+                label=""
                 type="text"
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="City, ZIP, Lat/Long"
+                color="#fff"
+
               />
               <Button
-                color="white"
                 aria-label="add"
                 type="button"
                 onClick={() => getData()}
+                
               >
-                {loading ? <CircularProgress /> : <div>Search</div>}
+                {loading ? <CircularProgress /> : <div className="">Search</div>}
               </Button>
             </Grid>
-            {/* {loading ? <CircularProgress /> : false} */}
-          </Paper>
+            </Paper>
         </Box>
       </Grid>
 
