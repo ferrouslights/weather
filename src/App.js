@@ -26,7 +26,7 @@ const App = () => {
         setLoading(false);
       }, 800);
     } catch (error) {
-      console.log(error.message);
+      console.log("Something went wrong");
       setLoading(false);
     }
   };
