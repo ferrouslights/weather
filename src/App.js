@@ -10,6 +10,8 @@ import {
   CircularProgress,
   AppBar,
 } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
+
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
