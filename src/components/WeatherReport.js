@@ -37,7 +37,7 @@ function IsSunny(props) {
     return (
       <span>
         {" "}
-        Maybe bring an <strong>umbrella</strong>.
+        Bring an <strong>umbrella</strong> just in case..
       </span>
     );
   } else {
