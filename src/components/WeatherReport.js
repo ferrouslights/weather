@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import { Helmet } from "react-helmet";
 
 const emoji = require("emoji-dictionary");
 
@@ -66,6 +67,10 @@ const WeatherReport = ({ weatherData }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+        {weatherData.current.temp_f < 70 ? (
+        <Helmet bodyAttributes={{style: 'background : linear-gradient(90deg, hsla(211, 95%, 61%, 1) 0%, hsla(207, 100%, 71%, 1) 51%, hsla(192, 100%, 60%, 1) 100%);'}} />
+      ) : 
+        <Helmet bodyAttributes={{style: 'background : linear-gradient(90deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%);'}} />}
       <Grid
         container
         direction="row"
