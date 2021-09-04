@@ -15,7 +15,6 @@ const App = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState("Pensacola");
   const [loading, setLoading] = useState(false);
-  const [bgColor, setBgColor] = useState("linear-gradient(90deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%);")
 
   const getData = async () => {
     try {
