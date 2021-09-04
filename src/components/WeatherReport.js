@@ -62,7 +62,7 @@ function ChooseEmoji(props) {
   }
 }
 
-const WeatherReport = ({ weatherData }, { loading }) => {
+const WeatherReport = ({ weatherData }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -73,7 +73,7 @@ const WeatherReport = ({ weatherData }, { loading }) => {
         alignItems="center"
         spacing={2}
       >
-        <Grid container spacing={3} justifyContent="flex-start" >
+        <Grid container spacing={3} justifyContent="flex-start">
           <Grid
             item
             container
@@ -98,24 +98,12 @@ const WeatherReport = ({ weatherData }, { loading }) => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid
-            item
-            container
-            xs={6}
-            md={6}
-            lg={2}
-            justifyContent="center"
-          >
+          <Grid item container xs={6} md={6} lg={2} justifyContent="center">
             <ChooseEmoji condition={weatherData.current.condition.code} />
           </Grid>
         </Grid>
 
         <Grid item xs={12} md={12} lg={12}>
-          {/* {weatherData.current.temp_f > 69 && (
-            <Typography variant="h2" color="#ffffff">
-              You def don't need a jacket.
-            </Typography>
-          )} */}
           {weatherData.current.temp_f > 75 ? (
             <Typography variant="h2">
               Sun's bussin'. You def don't need a <strong>jacket</strong>.
@@ -129,71 +117,7 @@ const WeatherReport = ({ weatherData }, { loading }) => {
           )}
         </Grid>
       </Grid>
-      {/*         
-      <Paper className={classes.paper}>
-        <Grid container spacing={2} justifyContent="space-around">
-          <Grid item alignItems="space-between" xs={12} md={4} lg={4}>
-            <Box>
-              <ButtonBase className={classes.temp}>
-                <Typography variant="h1">
-                  {weatherData.current.temp_f}º
-                </Typography>
-                <Hidden smUp>
-                  <img
-                    width={128}
-                    alt={weatherData.current.condition.text}
-                    src={"https:" + weatherData.current.condition.icon}
-                  ></img>
-                </Hidden>
-              </ButtonBase>
-            </Box>
-          </Grid>
-          <Grid item xs={12} lg={8} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="h2">
-                  {weatherData.location.name},{" "}
-                  {weatherData.location.region.substring(0, 2).toUpperCase()}
-                </Typography>
-                <Typography variant="subtitle2" color="primary">
-                  Feels Like: {weatherData.current.feelslike_f}
-                </Typography>
-                <Typography variant="body2" style={{ cursor: "pointer" }}>
-                  UV: {weatherData.current.uv}
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="subtitle1" gutterBottom>
-                  Last Updated: {weatherData.current.last_updated}
-                </Typography>
-              </Grid>
-            </Grid>
-            <Hidden mdDown>
-              <Grid item>
-                <img
-                  width={128}
-                  alt={weatherData.current.condition.text}
-                  src={"https:" + weatherData.current.condition.icon}
-                ></img>
-              </Grid>
-            </Hidden>
-          </Grid>
-        </Grid>
-      </Paper> */}
     </div>
-
-    // <div className="">
-    //   <h2>
-    //     {weatherData.location.name},{" "}
-    //     {weatherData.location.region.substring(0, 2).toUpperCase()}
-    //   </h2>
-    //   <h3 className="temp">{weatherData.current.temp_f}º</h3>
-
-    //   <img
-    //     alt={weatherData.current.condition.text}
-    //     src={"https:" + weatherData.current.condition.icon}
-    //   ></img>
-    // </div>
   );
 };
 
