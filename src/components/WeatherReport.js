@@ -111,12 +111,12 @@ const WeatherReport = ({ weatherData }) => {
         <Grid item xs={12} md={12} lg={12}>
           {weatherData.current.temp_f > 75 ? (
             <Typography variant="h2">
-              Sun's bussin'. You def don't need a <strong>jacket</strong>.
+              Nice day. You def don't need a <strong>jacket</strong>.
               <IsSunny condition={weatherData.current.condition.code} />
             </Typography>
           ) : (
             <Typography variant="h2">
-              You def need a <strong>jacket</strong>.
+              Uhhh, you def need a <strong>jacket</strong>.
               <IsSunny condition={weatherData.current.condition.code} />
             </Typography>
           )}
