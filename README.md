@@ -1,5 +1,9 @@
 # Simple weather app around needing a jacket and umbrella
 
+Created in react
+
+You can view the active demo here: https://heuristic-pasteur-0ff4a8.netlify.app
+
 This is mainly a proof of concept weather app. This does not utilize all functions of the weather api used. Inspired by the ios app brella.
 
 Utilizes weather API for simple current weather info and procesess it to recommend 
