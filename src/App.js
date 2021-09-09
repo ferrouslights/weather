@@ -13,7 +13,7 @@ import Paper from "@material-ui/core/Paper";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState("Pensacola");
+  const [city, setCity] = useState("Tokyo, Japan");
   const [loading, setLoading] = useState(false);
 
   const getData = async () => {
