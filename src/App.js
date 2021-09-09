@@ -67,7 +67,7 @@ const App = () => {
                 aria-label="add" 
                 type="button" 
                 onClick={() => getData()}>
-                  
+
                 {loading ? (
                   <CircularProgress />
                 ) : (
@@ -80,7 +80,9 @@ const App = () => {
       </Grid>
 
       {weatherData !== null ? (
-        <WeatherReport weatherData={weatherData} loading={loading} />
+        <WeatherReport 
+          weatherData={weatherData} 
+          loading={loading} />
       ) : null}
     </Container>
     </div>
