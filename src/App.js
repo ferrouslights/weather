@@ -50,7 +50,10 @@ const App = () => {
         <Box m={3}>
           {/* <h1>Weather Report</h1> */}
           <Paper color="#fff">
-            <Grid container alignItems="stretch" m={3}>
+            <Grid 
+              container 
+              alignItems="stretch" 
+              m={3}>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -60,7 +63,11 @@ const App = () => {
                 placeholder="City, ZIP, Lat/Long"
                 color="secondary"
               />
-              <Button aria-label="add" type="button" onClick={() => getData()}>
+              <Button 
+                aria-label="add" 
+                type="button" 
+                onClick={() => getData()}>
+                  
                 {loading ? (
                   <CircularProgress />
                 ) : (
