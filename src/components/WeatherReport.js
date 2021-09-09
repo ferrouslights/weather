@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { Helmet } from "react-helmet";
+import ChooseEmoji from "./ChooseEmoji";
 
-const emoji = require("emoji-dictionary");
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function IsSunny(props) {
+const IsSunny = (props) => {
   const condition = props.condition;
   if (condition !== 1000) {
     return (
       <span>
         {" "}
-        Bring an <strong>umbrella</strong> just in case..
+        Bring an <strong>umbrella</strong> just in case.
       </span>
     );
   } else {
@@ -46,19 +46,6 @@ function IsSunny(props) {
         {" "}
         No <strong>umbrella</strong> needed.
       </span>
-    );
-  }
-}
-
-function ChooseEmoji(props) {
-  const condition = props.condition;
-  if (condition !== 1000) {
-    return <Typography variant="h1">{emoji.getUnicode("umbrella")}</Typography>;
-  } else {
-    return (
-      <Typography variant="h1">
-        {emoji.getUnicode("cowboy_hat_face")}
-      </Typography>
     );
   }
 }
@@ -103,12 +90,21 @@ const WeatherReport = ({ weatherData }) => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item container xs={6} md={6} lg={2} justifyContent="center">
+          <Grid item 
+            container 
+            xs={6} 
+            md={6} 
+            lg={2} 
+            justifyContent="center">
             <ChooseEmoji condition={weatherData.current.condition.code} />
           </Grid>
         </Grid>
 
-        <Grid item xs={12} md={12} lg={12}>
+        <Grid 
+          item 
+          xs={12} 
+          md={12} 
+          lg={12}>
           {weatherData.current.temp_f > 75 ? (
             <Typography variant="h2">
               Nice day. You def don't need a <strong>jacket</strong>.
