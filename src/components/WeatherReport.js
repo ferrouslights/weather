@@ -48,16 +48,27 @@ const IsSunny = (props) => {
       </span>
     );
   }
-}
+};
 
 const WeatherReport = ({ weatherData }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-        {weatherData.current.temp_f < 70 ? (
-        <Helmet bodyAttributes={{style: 'background : linear-gradient(90deg, hsla(211, 95%, 61%, 1) 0%, hsla(207, 100%, 71%, 1) 51%, hsla(192, 100%, 60%, 1) 100%);'}} />
-      ) : 
-        <Helmet bodyAttributes={{style: 'background : linear-gradient(90deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%);'}} />}
+      {weatherData.current.temp_f < 70 ? (
+        <Helmet
+          bodyAttributes={{
+            style:
+              "background : linear-gradient(90deg, hsla(211, 95%, 61%, 1) 0%, hsla(207, 100%, 71%, 1) 51%, hsla(192, 100%, 60%, 1) 100%);",
+          }}
+        />
+      ) : (
+        <Helmet
+          bodyAttributes={{
+            style:
+              "background : linear-gradient(90deg, hsla(333, 100%, 53%, 1) 0%, hsla(33, 94%, 57%, 1) 100%);",
+          }}
+        />
+      )}
       <Grid
         container
         direction="row"
@@ -90,21 +101,12 @@ const WeatherReport = ({ weatherData }) => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item 
-            container 
-            xs={6} 
-            md={6} 
-            lg={2} 
-            justifyContent="center">
+          <Grid item container xs={6} md={6} lg={2} justifyContent="center">
             <ChooseEmoji condition={weatherData.current.condition.code} />
           </Grid>
         </Grid>
 
-        <Grid 
-          item 
-          xs={12} 
-          md={12} 
-          lg={12}>
+        <Grid item xs={12} md={12} lg={12}>
           {weatherData.current.temp_f > 75 ? (
             <Typography variant="h2">
               Nice day. You def don't need a <strong>jacket</strong>.
